@@ -17,8 +17,8 @@ importers:
         specifier: ^1.2.1
         version: 1.3.1(metalsmith@2.6.3)
       '@metalsmith/layouts':
-        specifier: ^2.5.1
-        version: 2.7.0(metalsmith@2.6.3)
+        specifier: ~3
+        version: 3.0.0(metalsmith@2.6.3)
       '@pirxpilot/metalsmith-esbuild':
         specifier: ^1.0.0
         version: 1.0.1(metalsmith@2.6.3)
@@ -311,9 +311,9 @@ packages:
     peerDependencies:
       metalsmith: ^2.5.0
 
-  '@metalsmith/layouts@2.7.0':
-    resolution: {integrity: sha512-VG5ldPSsTxUvHqFQo0u5mjWtS2IUUOqYKHvWnEHKol1UhaXhhYBYSnG0D8kjk+XzGw+mWxNfv/JoAhg94filXA==}
-    engines: {node: '>=12.0.0'}
+  '@metalsmith/layouts@3.0.0':
+    resolution: {integrity: sha512-5rOquSdfdQ9Nx++4gEIOZ8BDV0NuudthgV+itIJK/wgGRrFsmq2+3xQrbsX94oY73+KPJA5h638IU7Qp1nmTpQ==}
+    engines: {node: '>=14.18.0'}
     peerDependencies:
       metalsmith: ^2.4.1
 
@@ -593,10 +593,6 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  inputformat-to-jstransformer@1.4.0:
-    resolution: {integrity: sha512-Ub+Wjb0mjaND4IS/GDvQ+TEyd1i9U4OdrF58mBY7QTYu8CK5K34DPV7mrvo/WQBJLj7UJWQc7QAmFb7CbQ5lLw==}
-    engines: {node: '>=4'}
-
   is-binary-path@2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
@@ -809,9 +805,6 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
-
-  require-one@1.0.3:
-    resolution: {integrity: sha512-5nXixwgbAZfQ65g7fXv5fDXYRiKByOT1NT3EffS+0W/1MoF+Lkbsly3MXIlPIAgEtspX5fWAbXnp6d4BNMx+xQ==}
 
   resolve@1.22.11:
     resolution: {integrity: sha512-RfqAvLnMl313r7c9oclB1HhUEAezcpLjz95wFH4LVuhk9JF/r22qmVP9AMmOU4vMX7Q8pN8jwNg/CSpdFnMjTQ==}
@@ -1081,9 +1074,8 @@ snapshots:
       metalsmith: 2.6.3
       read-metadata: 1.0.0
 
-  '@metalsmith/layouts@2.7.0(metalsmith@2.6.3)':
+  '@metalsmith/layouts@3.0.0(metalsmith@2.6.3)':
     dependencies:
-      inputformat-to-jstransformer: 1.4.0
       is-utf8: 0.2.1
       jstransformer: 1.0.0
       metalsmith: 2.6.3
@@ -1379,10 +1371,6 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  inputformat-to-jstransformer@1.4.0:
-    dependencies:
-      require-one: 1.0.3
-
   is-binary-path@2.1.0:
     dependencies:
       binary-extensions: 2.3.0
@@ -1633,8 +1621,6 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
-
-  require-one@1.0.3: {}
 
   resolve@1.22.11:
     dependencies:
