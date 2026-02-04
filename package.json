@@ -32,7 +32,7 @@
     "swipe": "^1.7.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "^2.3.14"
   },
   "resolutions": {
     "debug": "~4",
