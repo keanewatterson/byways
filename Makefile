@@ -21,33 +21,27 @@ check: lint
 clean:
 	@rm -rf $(BUILD_DIR)/*
 
-distclean: clean
-	@rm -rf node_modules
-
 .SECONDARY: $(OUT_FILES)
 
 $(OUT_FILES): metalsmith
 
-metalsmith: | node_modules ${BUILD_DIR}
+metalsmith: deps | ${BUILD_DIR}
 	node metalsmith --destination ${BUILD_DIR}
 
 .PHONY: metalsmith
 
-preview: | node_modules ${BUILD_DIR}
+preview: deps | ${BUILD_DIR}
 	node metalsmith --preview --destination ${BUILD_DIR} --port $(PORT)
 
 $(BUILD_DIR):
 	mkdir -p $@
 	chown $(USER) $@
 
-lint: | node_modules
+lint: deps
 	$(NODE_BIN)/biome ci
 
-format: | node_modules
+format: deps
 	$(NODE_BIN)/biome check --fix
-
-node_modules:
-	yarn && touch $@
 
 build: $(OUT_FILES)
 
@@ -57,3 +51,13 @@ dist: build
 
 .PHONY: all preview build lint format clean
 
+%/node_modules: %/package.json %/pnpm-lock.yaml
+	pnpm -C $(@D) install --frozen-lockfile --silent
+	touch $@
+
+deps: $(CURDIR)/node_modules
+
+distclean: clean
+	rm -rf $(CURDIR)/node_modules
+
+.PHONY: distclean deps
