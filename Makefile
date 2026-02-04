@@ -30,8 +30,12 @@ metalsmith: deps | ${BUILD_DIR}
 
 .PHONY: metalsmith
 
-preview: deps | ${BUILD_DIR}
-	node metalsmith --preview --destination ${BUILD_DIR} --port $(PORT)
+preview: build
+	http-server $(BUILD_DIR) \
+		--port $(PORT) \
+		--ext html \
+		-c-1 \
+		-o
 
 $(BUILD_DIR):
 	mkdir -p $@
