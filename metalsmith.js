@@ -6,13 +6,12 @@ import metalsmith from 'metalsmith';
 import debug from 'metalsmith-debug';
 import define from 'metalsmith-define';
 import markdown from 'metalsmith-markdownit';
-import serve from 'metalsmith-serve';
 import stylus from 'metalsmith-stylus';
 import minimist from 'minimist';
 
 import packageJson from './package.json' with { type: 'json' };
 
-const { destination, port = 3040, preview = false } = minimist(process.argv.slice(2));
+const { destination } = minimist(process.argv.slice(2));
 
 /* exported locals */
 const locals = {
@@ -217,15 +216,10 @@ const ms = metalsmith(import.meta.dirname)
     layouts({
       directory: 'templates',
       default: 'byway.pug',
-      pattern: ['**/*.html', '**/*.xml']
+      pattern: ['**/*.html', '**/*.xml'],
+      transform: 'pug'
     })
   );
-
-if (preview) {
-  ms.use(serve({ port }));
-}
-
-/* global console */
 
 ms.build(err => {
   if (err) {
